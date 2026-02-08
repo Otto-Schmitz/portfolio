@@ -76,7 +76,7 @@ export function Projects({ variant }: { variant: SectionVariant }) {
         ))}
       </ul>
 
-      <p className={s.body}>
+      <p className={`${s.body} mt-6`}>
         {t("projects_visit_github_prefix")}
         <a
           href={contactData.github}
