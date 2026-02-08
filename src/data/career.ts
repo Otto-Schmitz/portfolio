@@ -22,18 +22,18 @@ export const careerData = {
         "Full stack nos produtos Paiperon e Here. Paiperon: sistema de contabilização de horas — performance, manutenção e novas funcionalidades. Here: plataforma imobiliária virtual — features de UX, gestão de imóveis e fluxo. Stack: TypeScript e Next.js.",
     },
     {
-      role: "Estagiário Full Stack (E-Crescer)",
-      company: "CWI Software",
-      period: "Dez 2022 – Mai 2023",
-      description:
-        "Programa Crescer: React, APIs REST com Spring e .NET 7.0, testes unitários, Swagger, Clean Architecture, DDD, TDD. Docker, GitHub Actions, PostgreSQL, SQLite, Git/GitLab, microsserviços e Kanban.",
-    },
-    {
       role: "Estagiário De Desenvolvimento De Software",
       company: "GREENMOTOR",
       period: "Mai 2023 – Jul 2023",
       description:
         "Full stack em solução com IA para previsão e otimização de vendas e compras em supermercados. Backend, frontend, banco de dados, dashboard analítico. Stack: Docker, Spring Boot, .NET, React. GCP, PostgreSQL, MariaDB. JUnit, xUnit, Jest. Contato com clientes e levantamento de requisitos.",
+    },
+    {
+      role: "Estagiário Full Stack (E-Crescer)",
+      company: "CWI Software",
+      period: "Dez 2022 – Mai 2023",
+      description:
+        "Programa Crescer: React, APIs REST com Spring e .NET 7.0, testes unitários, Swagger, Clean Architecture, DDD, TDD. Docker, GitHub Actions, PostgreSQL, SQLite, Git/GitLab, microsserviços e Kanban.",
     },
   ],
 };
