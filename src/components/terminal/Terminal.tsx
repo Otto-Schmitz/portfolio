@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { useAppMode } from "@/context/AppModeContext";
+import { useLocale } from "@/context/LocaleContext";
 import { executeCommand, getAutocomplete, applyCompletion } from "@/components/terminal/commands";
 import type { ContentSectionId } from "@/components/content/types";
 import { SectionRenderer } from "@/components/content/SectionRenderer";
@@ -24,6 +25,7 @@ function nextId() {
 
 export function Terminal() {
   const { setMode } = useAppMode();
+  const { t, locale, setLocale } = useLocale();
   const [lines, setLines] = useState<Line[]>([]);
   const [currentDir, setCurrentDir] = useState<ContentSectionId | "~">("~");
   const [input, setInput] = useState("");
@@ -43,6 +45,9 @@ export function Terminal() {
         setCurrentDir,
         switchToGui,
         history,
+        t,
+        locale,
+        setLocale,
       };
       const result = executeCommand(raw, ctx);
 
@@ -70,7 +75,18 @@ export function Terminal() {
         setLines((prev) => [
           ...prev,
           { id: nextId(), type: "command", content: raw, dir: currentDir },
-          { id: nextId(), type: "output", content: "Theme updated." },
+          { id: nextId(), type: "output", content: t("terminal_theme_updated") },
+        ]);
+        if (raw) setHistory((prev) => [...prev, raw]);
+        return;
+      }
+
+      if (result.type === "setLocale") {
+        setLocale(result.value);
+        setLines((prev) => [
+          ...prev,
+          { id: nextId(), type: "command", content: raw, dir: currentDir },
+          { id: nextId(), type: "output", content: t("terminal_lang_success", { locale: result.value }) },
         ]);
         if (raw) setHistory((prev) => [...prev, raw]);
         return;
@@ -99,7 +115,7 @@ export function Terminal() {
         setHistory((prev) => [...prev, raw]);
       }
     },
-    [currentDir, switchToGui, history, theme]
+    [currentDir, switchToGui, history, theme, t, locale, setLocale]
   );
 
   const handleSubmit = (e: React.FormEvent) => {

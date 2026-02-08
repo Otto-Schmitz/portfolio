@@ -3,6 +3,7 @@
 import { isContentSectionId, SECTIONS, type ContentSectionId } from "@/components/content/types";
 import type { CommandResult, CommandContext } from "./types";
 import { DEFAULT_THEME, parseColor } from "../theme";
+import { LOCALES } from "@/locales/types";
 
 /** Nome do "arquivo" que existe dentro de cada pasta e contém o conteúdo da seção */
 const CONTENT_FILE = "content";
@@ -16,27 +17,6 @@ function parsePath(path: string): [ContentSectionId, string] | null {
   return null;
 }
 
-function noSuchFile(name: string): CommandResult {
-  return {
-    type: "text",
-    value: `cat: ${name}: No such file or directory`,
-  };
-}
-
-function isDirectory(name: string): CommandResult {
-  return {
-    type: "text",
-    value: `cat: ${name}: Is a directory`,
-  };
-}
-
-function invalidCommand(cmd: string): CommandResult {
-  return {
-    type: "text",
-    value: `command not found: ${cmd}`,
-  };
-}
-
 export function executeCommand(
   input: string,
   ctx: CommandContext
@@ -44,11 +24,11 @@ export function executeCommand(
   const trimmed = input.trim();
   if (!trimmed) return null;
 
+  const { t } = ctx;
   const parts = trimmed.split(/\s+/);
   const name = parts[0].toLowerCase();
   const args = parts.slice(1);
 
-  // gui or /gui
   if (name === "gui" || name === "/gui") {
     return { type: "switchToGui" };
   }
@@ -61,17 +41,37 @@ export function executeCommand(
     return {
       type: "text",
       value: [
-        "Available commands:",
-        "  ls              list files and directories",
-        "  cd <dir>        change directory (e.g. cd about)",
-        "  cat <file>      show file content (inside a folder: cat content)",
-        "  open <path>     open: folder = enter it; file = show content",
-        "  history         show command history",
-        "  clear           clear screen",
-        "  theme           change terminal colors (prompt, command, output, background)",
-        "  gui             open graphical interface (macOS style)",
-        "  help            show this help",
+        t("terminal_help_title"),
+        t("terminal_help_ls"),
+        t("terminal_help_cd"),
+        t("terminal_help_cat"),
+        t("terminal_help_open"),
+        t("terminal_help_history"),
+        t("terminal_help_clear"),
+        t("terminal_help_theme"),
+        t("terminal_help_gui"),
+        t("terminal_help_help"),
+        t("terminal_help_lang"),
       ].join("\n"),
+    };
+  }
+
+  if (name === "lang") {
+    if (args.length === 0) {
+      return {
+        type: "text",
+        value: t("terminal_lang_current", { locale: ctx.locale }),
+      };
+    }
+    const code = args[0].toLowerCase();
+    const normalized = code === "pt-br" ? "pt-BR" : code;
+    const localeCode = normalized as (typeof LOCALES)[number];
+    if (LOCALES.includes(localeCode)) {
+      return { type: "setLocale", value: localeCode };
+    }
+    return {
+      type: "text",
+      value: t("terminal_lang_unknown", { code: args[0] }),
     };
   }
 
@@ -80,13 +80,13 @@ export function executeCommand(
       return {
         type: "text",
         value: [
-          "Usage: theme [reset] | theme <key> <color>",
-          "  prompt     path/prompt color (e.g. #22c55e or green)",
-          "  command    typed command color",
-          "  output     result text color",
-          "  background terminal background",
-          "  reset      restore default colors",
-          "Example: theme prompt #22c55e",
+          t("terminal_theme_usage"),
+          t("terminal_theme_prompt"),
+          t("terminal_theme_command"),
+          t("terminal_theme_output"),
+          t("terminal_theme_background"),
+          t("terminal_theme_reset"),
+          t("terminal_theme_example"),
         ].join("\n"),
       };
     }
@@ -94,18 +94,18 @@ export function executeCommand(
       return { type: "setTheme", value: DEFAULT_THEME };
     }
     if (args.length < 2) {
-      return { type: "text", value: "theme: missing color (e.g. theme prompt #22c55e)" };
+      return { type: "text", value: t("terminal_theme_missingColor") };
     }
     const key = args[0].toLowerCase() as keyof typeof DEFAULT_THEME;
     if (!(key in DEFAULT_THEME)) {
       return {
         type: "text",
-        value: `theme: unknown key '${args[0]}'. Use: prompt, command, output, background`,
+        value: t("terminal_theme_unknownKey", { key: args[0] }),
       };
     }
     const color = parseColor(args[1]);
     if (!color) {
-      return { type: "text", value: `theme: invalid color '${args[1]}'. Use hex (#RRGGBB) or name (green, red, ...)` };
+      return { type: "text", value: t("terminal_theme_invalidColor", { value: args[1] }) };
     }
     return { type: "setTheme", value: { [key]: color } };
   }
@@ -116,7 +116,7 @@ export function executeCommand(
       .join("\n");
     return {
       type: "text",
-      value: list || "(no commands yet)",
+      value: list || t("terminal_history_empty"),
     };
   }
 
@@ -132,13 +132,13 @@ export function executeCommand(
       }
       return {
         type: "text",
-        value: `ls: cannot access '${args[0]}': No such file or directory`,
+        value: t("terminal_ls_cannotAccess", { name: args[0] }),
       };
     }
     if (args[0]) {
       return {
         type: "text",
-        value: `ls: cannot access '${args[0]}': No such file or directory`,
+        value: t("terminal_ls_cannotAccess", { name: args[0] }),
       };
     }
     return { type: "text", value: CONTENT_FILE };
@@ -160,7 +160,7 @@ export function executeCommand(
     }
     return {
       type: "text",
-      value: `cd: no such directory: ${args[0]}`,
+      value: t("terminal_cd_noSuchDir", { name: args[0] }),
     };
   }
 
@@ -180,9 +180,15 @@ export function executeCommand(
         } as unknown as CommandResult;
       }
       if (isContentSectionId(pathArg)) {
-        return isDirectory(pathArg);
+        return {
+          type: "text",
+          value: t("terminal_cat_isDirectory", { name: pathArg }),
+        };
       }
-      return noSuchFile(args[0]);
+      return {
+        type: "text",
+        value: t("terminal_cat_noSuchFile", { name: args[0] }),
+      };
     }
 
     if (pathArg === CONTENT_FILE) {
@@ -191,7 +197,10 @@ export function executeCommand(
         value: { _section: ctx.currentDir },
       } as unknown as CommandResult;
     }
-    return noSuchFile(args[0]);
+    return {
+      type: "text",
+      value: t("terminal_cat_noSuchFile", { name: args[0] }),
+    };
   }
 
   if (name === "open") {
@@ -213,7 +222,10 @@ export function executeCommand(
         ctx.setCurrentDir(pathArg);
         return { type: "text", value: "" };
       }
-      return noSuchFile(args[0]);
+      return {
+        type: "text",
+        value: t("terminal_cat_noSuchFile", { name: args[0] }),
+      };
     }
 
     if (pathArg === CONTENT_FILE) {
@@ -222,10 +234,12 @@ export function executeCommand(
         value: { _section: ctx.currentDir },
       } as unknown as CommandResult;
     }
-    return noSuchFile(args[0]);
+    return {
+      type: "text",
+      value: t("terminal_cat_noSuchFile", { name: args[0] }),
+    };
   }
 
-  // Atalho /about, /career etc. = cd para essa pasta
   if (name.startsWith("/") && name.length > 1) {
     const section = name.slice(1).toLowerCase();
     if (isContentSectionId(section)) {
@@ -234,5 +248,8 @@ export function executeCommand(
     }
   }
 
-  return invalidCommand(name);
+  return {
+    type: "text",
+    value: t("terminal_commandNotFound", { cmd: name }),
+  };
 }

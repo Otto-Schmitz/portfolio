@@ -1,24 +1,26 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale } from "@/context/LocaleContext";
 import { WindowChrome } from "@/components/gui/WindowChrome";
 import { FolderView } from "@/components/gui/FolderView";
 import { SectionRenderer } from "@/components/content/SectionRenderer";
 import type { ContentSectionId } from "@/components/content/types";
 
 export function Finder() {
+  const { t } = useLocale();
   const [openSection, setOpenSection] = useState<ContentSectionId | null>(null);
 
   return (
     <div className="w-full max-w-4xl shadow-2xl rounded-xl overflow-hidden bg-white border border-black/10">
-      <WindowChrome title="Portfolio" />
+      <WindowChrome title={t("gui_window_title")} />
       <div className="flex min-h-[400px]">
         <aside
           className="w-48 border-r border-zinc-200 bg-zinc-50/80 p-2"
-          aria-label="Sidebar do Finder"
+          aria-label={t("gui_sidebar_favorites")}
         >
           <p className="text-xs font-semibold text-zinc-500 uppercase tracking-wider px-2 py-1">
-            Favoritos
+            {t("gui_sidebar_favorites")}
           </p>
           <FolderView
             onOpenFolder={setOpenSection}
@@ -27,13 +29,13 @@ export function Finder() {
         </aside>
         <section
           className="flex-1 p-4 bg-white min-h-[320px] overflow-auto"
-          aria-label="Conteúdo"
+          aria-label="Content"
         >
           {openSection ? (
             <FolderContent sectionId={openSection} />
           ) : (
             <p className="text-zinc-400 text-sm">
-              Selecione uma pasta na barra lateral ou clique em um ícone.
+              {t("gui_empty_selectFolder")}
             </p>
           )}
         </section>

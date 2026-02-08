@@ -1,14 +1,7 @@
 "use client";
 
 import type { ContentSectionId } from "@/components/content/types";
-
-const FOLDER_LABELS: Record<ContentSectionId, string> = {
-  about: "Sobre",
-  career: "Carreira",
-  skills: "Skills",
-  projects: "Projetos",
-  contact: "Contato",
-};
+import { useLocale } from "@/context/LocaleContext";
 
 const SECTIONS: ContentSectionId[] = [
   "about",
@@ -18,12 +11,22 @@ const SECTIONS: ContentSectionId[] = [
   "contact",
 ];
 
+const FOLDER_KEYS: Record<ContentSectionId, keyof import("@/locales/types").Translations> = {
+  about: "gui_folder_about",
+  career: "gui_folder_career",
+  skills: "gui_folder_skills",
+  projects: "gui_folder_projects",
+  contact: "gui_folder_contact",
+};
+
 type FolderViewProps = {
   onOpenFolder: (id: ContentSectionId) => void;
   openSection: ContentSectionId | null;
 };
 
 export function FolderView({ onOpenFolder, openSection }: FolderViewProps) {
+  const { t } = useLocale();
+
   return (
     <ul className="space-y-0.5" role="list">
       {SECTIONS.map((id) => (
@@ -41,7 +44,7 @@ export function FolderView({ onOpenFolder, openSection }: FolderViewProps) {
             <span className="text-lg" aria-hidden>
               📁
             </span>
-            {FOLDER_LABELS[id]}
+            {t(FOLDER_KEYS[id])}
           </button>
         </li>
       ))}

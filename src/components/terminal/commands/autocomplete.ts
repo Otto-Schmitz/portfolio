@@ -13,6 +13,7 @@ const COMMANDS = [
   "history",
   "clear",
   "theme",
+  "lang",
   "gui",
   "help",
 ] as const;
