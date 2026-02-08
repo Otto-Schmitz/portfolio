@@ -10,9 +10,9 @@ const styles = {
     list: "text-zinc-300 text-sm",
   },
   gui: {
-    heading: "text-zinc-900 font-semibold text-lg",
-    label: "text-zinc-500 text-sm",
-    list: "text-zinc-700",
+    heading: "text-zinc-900 dark:text-zinc-100 font-semibold text-lg",
+    label: "text-zinc-500 dark:text-zinc-400 text-sm",
+    list: "text-zinc-700 dark:text-zinc-300",
   },
 };
 

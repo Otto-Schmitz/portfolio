@@ -11,10 +11,10 @@ const styles = {
     tech: "text-zinc-500 text-xs",
   },
   gui: {
-    heading: "text-zinc-900 font-semibold text-lg",
-    name: "text-zinc-800 font-medium",
-    desc: "text-zinc-600 text-sm",
-    tech: "text-zinc-500 text-xs",
+    heading: "text-zinc-900 dark:text-zinc-100 font-semibold text-lg",
+    name: "text-zinc-800 dark:text-zinc-200 font-medium",
+    desc: "text-zinc-600 dark:text-zinc-400 text-sm",
+    tech: "text-zinc-500 dark:text-zinc-500 text-xs",
   },
 };
 
@@ -32,7 +32,7 @@ export function Projects({ variant }: { variant: SectionVariant }) {
             {project.link && (
               <a
                 href={project.link}
-                className="text-green-500 hover:underline text-sm mt-1 inline-block"
+                className="text-green-500 dark:text-green-400 hover:underline text-sm mt-1 inline-block"
               >
                 Ver projeto
               </a>

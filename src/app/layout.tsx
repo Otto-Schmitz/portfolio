@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@/context/ThemeContext";
 import { LocaleProvider } from "@/context/LocaleContext";
 import { AppModeProvider } from "@/context/AppModeContext";
 import { SkipLink } from "@/components/shared/SkipLink";
@@ -26,20 +27,35 @@ export const metadata: Metadata = {
   },
 };
 
+const themeScript = `
+(function(){
+  try {
+    var t = localStorage.getItem('portfolio-theme');
+    if (t === 'dark' || t === 'light') document.documentElement.classList.add(t);
+    else document.documentElement.classList.add('light');
+  } catch (e) { document.documentElement.classList.add('light'); }
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <LocaleProvider>
-          <SkipLink />
-          <AppModeProvider>{children}</AppModeProvider>
-        </LocaleProvider>
+        <ThemeProvider>
+          <LocaleProvider>
+            <SkipLink />
+            <AppModeProvider>{children}</AppModeProvider>
+          </LocaleProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

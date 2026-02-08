@@ -53,6 +53,8 @@ export const ptBR: Translations = {
   dock_finder: "Interface gráfica",
   settings_title: "Configurações",
   settings_language: "Idioma",
+  settings_theme: "Aparência",
+  settings_dark_mode: "Modo escuro",
   settings_close: "Fechar",
   lang_name_ptBR: "Português (Brasil)",
   lang_name_en: "English",

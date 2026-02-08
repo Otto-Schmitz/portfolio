@@ -53,6 +53,8 @@ export const ja: Translations = {
   dock_finder: "グラフィカルインターフェース",
   settings_title: "設定",
   settings_language: "言語",
+  settings_theme: "外観",
+  settings_dark_mode: "ダークモード",
   settings_close: "閉じる",
   lang_name_ptBR: "Português (Brasil)",
   lang_name_en: "English",

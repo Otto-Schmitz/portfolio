@@ -9,8 +9,8 @@ const styles = {
     link: "text-zinc-300 text-sm hover:text-green-400",
   },
   gui: {
-    heading: "text-zinc-900 font-semibold text-lg",
-    link: "text-blue-600 hover:underline text-sm",
+    heading: "text-zinc-900 dark:text-zinc-100 font-semibold text-lg",
+    link: "text-blue-600 dark:text-blue-400 hover:underline text-sm",
   },
 };
 

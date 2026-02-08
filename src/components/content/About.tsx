@@ -10,9 +10,9 @@ const styles = {
     accent: "text-zinc-400",
   },
   gui: {
-    heading: "text-zinc-900 font-semibold text-lg",
-    body: "text-zinc-600",
-    accent: "text-zinc-500",
+    heading: "text-zinc-900 dark:text-zinc-100 font-semibold text-lg",
+    body: "text-zinc-600 dark:text-zinc-300",
+    accent: "text-zinc-500 dark:text-zinc-400",
   },
 };
 

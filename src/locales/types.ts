@@ -63,6 +63,8 @@ export type Translations = {
   dock_finder: string;
   settings_title: string;
   settings_language: string;
+  settings_theme: string;
+  settings_dark_mode: string;
   settings_close: string;
   lang_name_ptBR: string;
   lang_name_en: string;

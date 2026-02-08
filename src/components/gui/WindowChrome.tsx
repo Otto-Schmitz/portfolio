@@ -3,7 +3,7 @@
 export function WindowChrome({ title }: { title: string }) {
   return (
     <div
-      className="h-10 flex items-center gap-2 px-3 bg-zinc-100 border-b border-zinc-200 rounded-t-xl"
+      className="h-10 flex items-center gap-2 px-3 bg-zinc-100 dark:bg-zinc-700/80 border-b border-zinc-200 dark:border-zinc-600 rounded-t-xl"
       role="presentation"
     >
       <div className="flex gap-1.5">
@@ -11,7 +11,7 @@ export function WindowChrome({ title }: { title: string }) {
         <span className="w-3 h-3 rounded-full bg-[#febc2e]" aria-hidden />
         <span className="w-3 h-3 rounded-full bg-[#28c840]" aria-hidden />
       </div>
-      <span className="flex-1 text-center text-sm font-medium text-zinc-600 -ml-12">
+      <span className="flex-1 text-center text-sm font-medium text-zinc-600 dark:text-zinc-300 -ml-12">
         {title}
       </span>
     </div>

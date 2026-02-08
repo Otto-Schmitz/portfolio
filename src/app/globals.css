@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Dark mode: class .dark ou .light no html; sem classe usa preferência do sistema */
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant light (&:where(.light, .light *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -16,8 +20,20 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Força tema claro quando html tem classe .light */
+html.light {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Força tema escuro quando html tem classe .dark */
+html.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not(.light):not(.dark) {
     --background: #0a0a0a;
     --foreground: #ededed;
   }

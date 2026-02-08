@@ -36,8 +36,8 @@ export function FolderView({ onOpenFolder, openSection }: FolderViewProps) {
             onClick={() => onOpenFolder(id)}
             className={`w-full flex items-center gap-2 px-2 py-2 rounded-md text-left text-sm transition-colors ${
               openSection === id
-                ? "bg-blue-100 text-blue-800"
-                : "text-zinc-700 hover:bg-zinc-200"
+                ? "bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200"
+                : "text-zinc-700 dark:text-zinc-300 hover:bg-zinc-200 dark:hover:bg-zinc-700"
             }`}
             aria-current={openSection === id ? "true" : undefined}
           >

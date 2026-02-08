@@ -53,6 +53,8 @@ export const ko: Translations = {
   dock_finder: "그래픽 인터페이스",
   settings_title: "설정",
   settings_language: "언어",
+  settings_theme: "테마",
+  settings_dark_mode: "다크 모드",
   settings_close: "닫기",
   lang_name_ptBR: "Português (Brasil)",
   lang_name_en: "English",

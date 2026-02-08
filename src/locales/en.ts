@@ -53,6 +53,8 @@ export const en: Translations = {
   dock_finder: "Graphical interface",
   settings_title: "Settings",
   settings_language: "Language",
+  settings_theme: "Appearance",
+  settings_dark_mode: "Dark mode",
   settings_close: "Close",
   lang_name_ptBR: "Português (Brasil)",
   lang_name_en: "English",

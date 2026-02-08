@@ -53,6 +53,8 @@ export const zh: Translations = {
   dock_finder: "图形界面",
   settings_title: "设置",
   settings_language: "语言",
+  settings_theme: "外观",
+  settings_dark_mode: "深色模式",
   settings_close: "关闭",
   lang_name_ptBR: "Português (Brasil)",
   lang_name_en: "English",
