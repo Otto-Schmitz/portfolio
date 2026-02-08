@@ -1,5 +1,5 @@
 export const contactData = {
-  email: "seu@email.com",
-  github: "https://github.com/seu-usuario",
-  linkedin: "https://linkedin.com/in/seu-perfil",
+  email: "ottosschmitz@gmail.com",
+  github: "https://github.com/Otto-Schmitz",
+  linkedin: "https://www.linkedin.com/in/ottoschmitz/",
 };

@@ -11,9 +11,9 @@ export function MacOSLayout() {
   const [settingsOpen, setSettingsOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#ececec] dark:bg-zinc-900 flex flex-col">
+    <div className="h-screen overflow-hidden flex flex-col liquid-glass-bg">
       <header
-        className="h-10 flex items-center justify-between gap-6 bg-black/5 dark:bg-white/5 backdrop-blur-md border-b border-black/10 dark:border-white/10 px-4 text-sm text-zinc-700 dark:text-zinc-300"
+        className="h-10 shrink-0 flex items-center justify-between gap-6 bg-black/5 dark:bg-white/5 backdrop-blur-md border-b border-black/10 dark:border-white/10 px-4 text-sm text-zinc-700 dark:text-zinc-300"
         role="banner"
       >
         <div className="flex items-center gap-6">
@@ -39,7 +39,7 @@ export function MacOSLayout() {
         </button>
       </header>
       {settingsOpen && <SettingsModal onClose={() => setSettingsOpen(false)} />}
-      <main className="flex-1 flex items-center justify-center p-6" role="main">
+      <main className="flex-1 min-h-0 flex items-center justify-center p-6 overflow-hidden" role="main">
         <Finder />
       </main>
       <AppDock />

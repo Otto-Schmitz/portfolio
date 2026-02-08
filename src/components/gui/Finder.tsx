@@ -12,11 +12,11 @@ export function Finder() {
   const [openSection, setOpenSection] = useState<ContentSectionId | null>(null);
 
   return (
-    <div className="w-full max-w-4xl shadow-2xl rounded-xl overflow-hidden bg-white dark:bg-zinc-800 border border-black/10 dark:border-zinc-600">
+    <div className="w-[min(1100px,90vw)] h-[min(780px,82vh)] flex flex-col shrink-0 rounded-xl overflow-hidden bg-white dark:bg-zinc-800 border border-black/10 dark:border-zinc-600">
       <WindowChrome title={t("gui_window_title")} />
-      <div className="flex min-h-[400px]">
+      <div className="flex flex-1 min-h-0">
         <aside
-          className="w-48 border-r border-zinc-200 dark:border-zinc-600 bg-zinc-50/80 dark:bg-zinc-800/80 p-2"
+          className="w-48 shrink-0 border-r border-zinc-200 dark:border-zinc-600 bg-zinc-50/80 dark:bg-zinc-800/80 p-2 overflow-y-auto finder-sidebar-scroll"
           aria-label={t("gui_sidebar_favorites")}
         >
           <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider px-2 py-1">
@@ -28,7 +28,7 @@ export function Finder() {
           />
         </aside>
         <section
-          className="flex-1 p-4 bg-white dark:bg-zinc-800 min-h-[320px] overflow-auto"
+          className="flex-1 min-w-0 p-4 bg-white dark:bg-zinc-800 overflow-y-auto finder-content-scroll"
           aria-label="Content"
         >
           {openSection ? (

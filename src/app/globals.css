@@ -45,6 +45,28 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
+/* Liquid glass: fundo com gradiente suave e sensação de vidro fosco */
+.liquid-glass-bg {
+  background: linear-gradient(
+    165deg,
+    #e8e9ef 0%,
+    #f0f1f6 25%,
+    #eaeef4 50%,
+    #e4e8f0 75%,
+    #e2e6ee 100%
+  );
+}
+.dark .liquid-glass-bg {
+  background: linear-gradient(
+    165deg,
+    #18181b 0%,
+    #1c1c21 25%,
+    #16161a 50%,
+    #1a1a1f 75%,
+    #141418 100%
+  );
+}
+
 @keyframes blink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
@@ -77,6 +99,43 @@ body {
 .terminal-scroll::-webkit-scrollbar-track,
 .terminal-scroll::-webkit-scrollbar-thumb {
   display: none !important;
+}
+
+/* Scroll minimalista apenas dentro da janela do Finder */
+.finder-content-scroll,
+.finder-sidebar-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(161 161 170) transparent;
+}
+.dark .finder-content-scroll,
+.dark .finder-sidebar-scroll {
+  scrollbar-color: rgb(82 82 91) transparent;
+}
+.finder-content-scroll::-webkit-scrollbar,
+.finder-sidebar-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.finder-content-scroll::-webkit-scrollbar-track,
+.finder-sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.finder-content-scroll::-webkit-scrollbar-thumb,
+.finder-sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgb(161 161 170);
+  border-radius: 3px;
+}
+.finder-content-scroll::-webkit-scrollbar-thumb:hover,
+.finder-sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgb(113 113 122);
+}
+.dark .finder-content-scroll::-webkit-scrollbar-thumb,
+.dark .finder-sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgb(82 82 91);
+}
+.dark .finder-content-scroll::-webkit-scrollbar-thumb:hover,
+.dark .finder-sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgb(63 63 70);
 }
 
 .sr-only {
