@@ -1,12 +1,12 @@
-# Screenshots para o README
+# Screenshots for the README
 
-Coloque aqui os prints da aplicação com os seguintes nomes para que apareçam no README principal:
+Add application screenshots to this folder with the names below so they can be referenced from the main README (e.g. in a table with `![alt](filename)` once the files exist).
 
-| Arquivo | Descrição sugerida |
-|---------|--------------------|
-| `01-terminal.png` | Tela no modo terminal: prompt, histórico com `ls` ou `help`, barra inferior com dock |
-| `02-finder.png` | Interface estilo macOS: header, janela do Finder com sidebar (Favoritos) e painel de conteúdo |
-| `03-dark-mode.png` | Mesma interface com tema escuro ativado (configurações → Modo escuro) |
-| `04-settings.png` | Modal de configurações aberto: seção Aparência (toggle modo escuro) e lista de idiomas |
+| File | Suggested content |
+|------|--------------------|
+| `01-terminal.png` | Terminal mode: prompt, history with `ls` or `help`, bottom dock |
+| `02-finder.png` | macOS-style window: header, Finder with sidebar (Favorites) and content panel |
+| `03-dark-mode.png` | Same interface with dark theme enabled (Settings → Dark mode) |
+| `04-settings.png` | Settings modal open: Appearance (dark mode toggle) and language list |
 
-Formato recomendado: PNG, largura em torno de 800–1200 px para boa leitura no GitHub.
+**Format:** PNG, width around 800–1200 px for good display on GitHub.
