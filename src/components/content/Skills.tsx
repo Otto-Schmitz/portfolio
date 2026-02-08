@@ -1,6 +1,6 @@
 "use client";
 
-import { skillsData } from "@/data/skills";
+import { useLocale } from "@/context/LocaleContext";
 import type { SectionVariant } from "./SectionRenderer";
 
 const styles = {
@@ -16,23 +16,26 @@ const styles = {
   },
 };
 
+const SEP = " · ";
+
 export function Skills({ variant }: { variant: SectionVariant }) {
+  const { t } = useLocale();
   const s = styles[variant];
   return (
     <div className="space-y-4">
-      <h3 className={s.heading}>Skills</h3>
+      <h3 className={s.heading}>{t("gui_folder_skills")}</h3>
       <div className="grid gap-4 sm:grid-cols-3">
         <div>
-          <p className={s.label}>Backend</p>
-          <p className={s.list}>{skillsData.backend.join(", ")}</p>
+          <p className={s.label}>{t("skills_label_backend")}</p>
+          <p className={s.list}>{t("skills_backend").split(SEP).join(", ")}</p>
         </div>
         <div>
-          <p className={s.label}>Databases</p>
-          <p className={s.list}>{skillsData.databases.join(", ")}</p>
+          <p className={s.label}>{t("skills_label_databases")}</p>
+          <p className={s.list}>{t("skills_databases").split(SEP).join(", ")}</p>
         </div>
         <div>
-          <p className={s.label}>Tools</p>
-          <p className={s.list}>{skillsData.tools.join(", ")}</p>
+          <p className={s.label}>{t("skills_label_tools")}</p>
+          <p className={s.list}>{t("skills_tools").split(SEP).join(", ")}</p>
         </div>
       </div>
     </div>

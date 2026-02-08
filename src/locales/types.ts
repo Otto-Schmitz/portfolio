@@ -73,4 +73,57 @@ export type Translations = {
   lang_name_ja: string;
   lang_name_de: string;
   lang_name_es: string;
+  /* Conteúdo – About */
+  about_name: string;
+  about_headline: string;
+  about_bio: string;
+  about_experience_title: string;
+  about_experience_list: string;
+  about_bio_closing: string;
+  about_funfacts_title: string;
+  about_funfacts_car: string;
+  about_funfacts_anime: string;
+  about_funfacts_game: string;
+  about_funfacts_fuel: string;
+  about_funfacts_interests: string;
+  about_funfacts_pets: string;
+  /* Conteúdo – Career (5 jobs) */
+  career_1_role: string;
+  career_1_company: string;
+  career_1_period: string;
+  career_1_description: string;
+  career_2_role: string;
+  career_2_company: string;
+  career_2_period: string;
+  career_2_description: string;
+  career_3_role: string;
+  career_3_company: string;
+  career_3_period: string;
+  career_3_description: string;
+  career_4_role: string;
+  career_4_company: string;
+  career_4_period: string;
+  career_4_description: string;
+  career_5_role: string;
+  career_5_company: string;
+  career_5_period: string;
+  career_5_description: string;
+  /* Conteúdo – Skills (labels e listas separadas por " · ") */
+  skills_label_backend: string;
+  skills_label_databases: string;
+  skills_label_tools: string;
+  skills_backend: string;
+  skills_databases: string;
+  skills_tools: string;
+  /* Conteúdo – Projects (2 itens) */
+  project_1_name: string;
+  project_1_description: string;
+  project_1_tech: string;
+  project_2_name: string;
+  project_2_description: string;
+  project_2_tech: string;
+  projects_view_project: string;
+  /* Conteúdo – Contact */
+  contact_github_label: string;
+  contact_linkedin_label: string;
 };

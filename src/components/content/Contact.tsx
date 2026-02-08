@@ -1,5 +1,6 @@
 "use client";
 
+import { useLocale } from "@/context/LocaleContext";
 import { contactData } from "@/data/contact";
 import type { SectionVariant } from "./SectionRenderer";
 
@@ -15,10 +16,11 @@ const styles = {
 };
 
 export function Contact({ variant }: { variant: SectionVariant }) {
+  const { t } = useLocale();
   const s = styles[variant];
   return (
     <div className="space-y-3">
-      <h3 className={s.heading}>Contato</h3>
+      <h3 className={s.heading}>{t("gui_folder_contact")}</h3>
       <ul className="space-y-1 list-none">
         <li>
           <a href={`mailto:${contactData.email}`} className={s.link}>
@@ -27,12 +29,12 @@ export function Contact({ variant }: { variant: SectionVariant }) {
         </li>
         <li>
           <a href={contactData.github} target="_blank" rel="noopener noreferrer" className={s.link}>
-            GitHub
+            {t("contact_github_label")}
           </a>
         </li>
         <li>
           <a href={contactData.linkedin} target="_blank" rel="noopener noreferrer" className={s.link}>
-            LinkedIn
+            {t("contact_linkedin_label")}
           </a>
         </li>
       </ul>
