@@ -39,10 +39,16 @@ html.dark {
   }
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  min-height: 100dvh;
+  overflow-x: hidden;
 }
 
 /* Liquid glass: fundo com gradiente suave e sensação de vidro fosco */
@@ -83,13 +89,22 @@ body {
 
 .terminal-output [data-output] {
   animation: fadeIn 0.2s ease-out;
+  line-height: 1.5;
+  word-break: break-word;
 }
 
 /* Scroll sem mostrar barra, como terminal real */
 .terminal-scroll {
   overflow-y: auto !important;
+  overflow-x: hidden !important;
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
+}
+
+.safe-area-padding {
+  padding-left: max(0.75rem, env(safe-area-inset-left, 0px)) !important;
+  padding-right: max(0.75rem, env(safe-area-inset-right, 0px)) !important;
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px)) !important;
 }
 .terminal-scroll::-webkit-scrollbar {
   display: none !important;

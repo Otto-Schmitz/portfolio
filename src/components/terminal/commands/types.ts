@@ -5,6 +5,7 @@ import type { LocaleCode, Translations } from "@/locales/types";
 
 export type CommandResult =
   | { type: "text"; value: string }
+  | { type: "help"; value: string }
   | { type: "component"; value: ReactNode }
   | { type: "switchToGui" }
   | { type: "clear" }

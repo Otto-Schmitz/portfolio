@@ -39,7 +39,7 @@ export function executeCommand(
 
   if (name === "help" || name === "?") {
     return {
-      type: "text",
+      type: "help",
       value: [
         t("terminal_help_title"),
         t("terminal_help_ls"),

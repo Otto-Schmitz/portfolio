@@ -11,19 +11,19 @@ export function MacOSLayout() {
   const [settingsOpen, setSettingsOpen] = useState(false);
 
   return (
-    <div className="h-screen overflow-hidden flex flex-col liquid-glass-bg">
+    <div className="h-screen overflow-hidden flex flex-col liquid-glass-bg min-h-[100dvh]">
       <header
-        className="h-10 shrink-0 flex items-center justify-between gap-6 bg-black/5 dark:bg-white/5 backdrop-blur-md border-b border-black/10 dark:border-white/10 px-4 text-sm text-zinc-700 dark:text-zinc-300"
+        className="h-10 sm:h-9 shrink-0 flex items-center justify-between gap-2 sm:gap-6 bg-black/5 dark:bg-white/5 backdrop-blur-md border-b border-black/10 dark:border-white/10 px-3 sm:px-4 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 overflow-x-auto overflow-y-hidden"
         role="banner"
       >
-        <div className="flex items-center gap-6">
-          <span className="font-semibold">{t("gui_menu_finder")}</span>
-          <span>{t("gui_menu_file")}</span>
-          <span>{t("gui_menu_edit")}</span>
-          <span>{t("gui_menu_view")}</span>
-          <span>{t("gui_menu_go")}</span>
-          <span>{t("gui_menu_window")}</span>
-          <span>{t("gui_menu_help")}</span>
+        <div className="flex items-center gap-3 sm:gap-6 shrink-0 min-w-0">
+          <span className="font-semibold shrink-0">{t("gui_menu_finder")}</span>
+          <span className="shrink-0">{t("gui_menu_file")}</span>
+          <span className="shrink-0">{t("gui_menu_edit")}</span>
+          <span className="shrink-0">{t("gui_menu_view")}</span>
+          <span className="shrink-0">{t("gui_menu_go")}</span>
+          <span className="shrink-0">{t("gui_menu_window")}</span>
+          <span className="shrink-0">{t("gui_menu_help")}</span>
         </div>
         <button
           type="button"
@@ -39,7 +39,7 @@ export function MacOSLayout() {
         </button>
       </header>
       {settingsOpen && <SettingsModal onClose={() => setSettingsOpen(false)} />}
-      <main className="flex-1 min-h-0 flex items-center justify-center p-6 overflow-hidden" role="main">
+      <main className="flex-1 min-h-0 flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-hidden" role="main">
         <Finder />
       </main>
       <AppDock />

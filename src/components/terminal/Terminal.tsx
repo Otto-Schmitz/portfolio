@@ -7,6 +7,7 @@ import { executeCommand, getAutocomplete, applyCompletion } from "@/components/t
 import type { ContentSectionId } from "@/components/content/types";
 import { SectionRenderer } from "@/components/content/SectionRenderer";
 import { TerminalOutput } from "@/components/terminal/TerminalOutput";
+import { HelpOutput } from "@/components/terminal/HelpOutput";
 import { AppDock } from "@/components/shared/AppDock";
 import { loadTheme, saveTheme, type TerminalTheme } from "@/components/terminal/theme";
 
@@ -98,6 +99,13 @@ export function Terminal() {
 
       if (result.type === "text" && result.value !== "") {
         newLines.push({ id: nextId(), type: "output", content: result.value });
+      }
+      if (result.type === "help") {
+        newLines.push({
+          id: nextId(),
+          type: "output",
+          content: <HelpOutput text={result.value} theme={theme} />,
+        });
       }
       if (result.type === "component") {
         const v = result.value as { _section?: ContentSectionId };
@@ -195,7 +203,7 @@ export function Terminal() {
 
   return (
     <div
-      className="h-screen max-h-screen overflow-hidden font-mono p-4 md:p-6 flex flex-col"
+      className="h-screen max-h-[100dvh] overflow-hidden font-mono px-3 py-4 sm:px-4 md:p-6 flex flex-col w-full max-w-full box-border safe-area-padding"
       style={{ backgroundColor: theme.background, color: theme.command }}
       role="application"
       aria-label="Terminal"
@@ -220,7 +228,7 @@ export function Terminal() {
             value={input}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
-            className="flex-1 min-w-[200px] bg-transparent border-none outline-none font-mono text-sm focus:outline-none"
+            className="flex-1 min-w-0 bg-transparent border-none outline-none font-mono text-sm sm:text-base focus:outline-none"
             style={{ color: theme.command, caretColor: theme.prompt }}
             spellCheck={false}
             autoComplete="off"
