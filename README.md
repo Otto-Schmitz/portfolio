@@ -18,7 +18,7 @@ Personal portfolio as a **terminal** and **macOS-style (Finder)** interface. Con
 
 ## English
 
-**Live link:** *(fill in when published — e.g. https://your-portfolio.vercel.app)*
+**Live link:** [https://portfolio-eight-rose-cjv66qw6bi.vercel.app](https://portfolio-eight-rose-cjv66qw6bi.vercel.app)
 
 ### Screenshots
 
@@ -101,7 +101,7 @@ npm run dev
 
 ## Português (Brasil)
 
-**Link de acesso:** *(preencher quando publicado — ex.: https://seu-portfolio.vercel.app)*
+**Link de acesso:** [https://portfolio-eight-rose-cjv66qw6bi.vercel.app](https://portfolio-eight-rose-cjv66qw6bi.vercel.app)
 
 ### Screenshots
 
@@ -184,7 +184,7 @@ npm run dev
 
 ## 中文
 
-**访问链接：** *(发布后填写 — 例如 https://your-portfolio.vercel.app)*
+**访问链接：** [https://portfolio-eight-rose-cjv66qw6bi.vercel.app](https://portfolio-eight-rose-cjv66qw6bi.vercel.app)
 
 ### 截图
 
@@ -267,7 +267,7 @@ npm run dev
 
 ## 한국어
 
-**접속 링크:** *(배포 후 입력 — 예: https://your-portfolio.vercel.app)*
+**접속 링크:** [https://portfolio-eight-rose-cjv66qw6bi.vercel.app](https://portfolio-eight-rose-cjv66qw6bi.vercel.app)
 
 ### 스크린샷
 
@@ -350,7 +350,7 @@ npm run dev
 
 ## 日本語
 
-**アクセスリンク:** *(公開時に記入 — 例: https://your-portfolio.vercel.app)*
+**アクセスリンク:** [https://portfolio-eight-rose-cjv66qw6bi.vercel.app](https://portfolio-eight-rose-cjv66qw6bi.vercel.app)
 
 ### スクリーンショット
 
@@ -433,7 +433,7 @@ npm run dev
 
 ## Deutsch
 
-**Zugriffslink:** *(nach Veröffentlichung ausfüllen — z. B. https://your-portfolio.vercel.app)*
+**Zugriffslink:** [https://portfolio-eight-rose-cjv66qw6bi.vercel.app](https://portfolio-eight-rose-cjv66qw6bi.vercel.app)
 
 ### Screenshots
 
@@ -516,7 +516,7 @@ npm run dev
 
 ## Español
 
-**Enlace de acceso:** *(completar al publicar — ej. https://your-portfolio.vercel.app)*
+**Enlace de acceso:** [https://portfolio-eight-rose-cjv66qw6bi.vercel.app](https://portfolio-eight-rose-cjv66qw6bi.vercel.app)
 
 ### Capturas de pantalla
 
