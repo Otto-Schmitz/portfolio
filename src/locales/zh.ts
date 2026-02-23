@@ -126,7 +126,7 @@ export const zh: Translations = {
   project_1_description:
     "Node.js CLI，自动检测项目技术栈（Java、Node、Docker、Python 等）并基于 GitHub/gitignore 官方模板生成 .gitignore，支持回退到 gitignore.io。可智能合并已有规则并去重。",
   project_1_tech: "TypeScript · Node.js · CLI",
-  project_1_demo_label: "查看演示",
+  project_1_demo_label: "文档",
   project_2_name: "secry-api",
   project_2_description:
     "Java Spring Boot 后端 API，用于安全个人数据钱包，侧重健康信息、紧急联系人与身份，含 JWT 认证与分层架构。",

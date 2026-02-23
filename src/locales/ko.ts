@@ -126,7 +126,7 @@ export const ko: Translations = {
   project_1_description:
     "프로젝트 스택(Java, Node, Docker, Python 등)을 자동으로 감지하고 GitHub/gitignore 공식 템플릿으로 .gitignore를 생성하는 Node.js CLI. gitignore.io 폴백, 기존 규칙과 스마트 병합, 중복 제거.",
   project_1_tech: "TypeScript · Node.js · CLI",
-  project_1_demo_label: "데모 보기",
+  project_1_demo_label: "문서",
   project_2_name: "secry-api",
   project_2_description:
     "건강 정보, 비상 연락처 및 신원에 초점을 둔 안전한 개인 데이터 지갑을 위한 Java Spring Boot 백엔드 API. JWT 인증 및 계층형 아키텍처.",

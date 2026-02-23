@@ -126,7 +126,7 @@ export const ja: Translations = {
   project_1_description:
     "プロジェクトのスタック（Java、Node、Docker、Python など）を自動検出し、GitHub/gitignore の公式テンプレートで .gitignore を生成する Node.js CLI。gitignore.io へのフォールバック、既存ルールとのスマートマージ、重複削除。",
   project_1_tech: "TypeScript · Node.js · CLI",
-  project_1_demo_label: "デモを見る",
+  project_1_demo_label: "ドキュメント",
   project_2_name: "secry-api",
   project_2_description:
     "健康情報・緊急連絡先・本人確認に特化した安全な個人データウォレット用 Java Spring Boot バックエンド API。JWT 認証とレイヤードアーキテクチャ。",

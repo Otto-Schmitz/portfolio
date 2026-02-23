@@ -127,7 +127,7 @@ export const ptBR: Translations = {
   project_1_description:
     "CLI em Node.js que detecta automaticamente a stack do projeto (Java, Node, Docker, Python, etc.) e gera um .gitignore usando os templates oficiais do GitHub/gitignore, com fallback para gitignore.io. Faz merge inteligente com regras existentes e remove duplicatas.",
   project_1_tech: "TypeScript · Node.js · CLI",
-  project_1_demo_label: "Ver demonstração",
+  project_1_demo_label: "Documentação",
   project_2_name: "secry-api",
   project_2_description:
     "API backend em Java com Spring Boot para uma carteira de dados pessoais segura, focada em informações de saúde, contatos de emergência e identidade, com autenticação JWT e arquitetura em camadas.",

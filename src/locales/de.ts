@@ -127,7 +127,7 @@ export const de: Translations = {
   project_1_description:
     "Node.js-CLI, die automatisch die Projekt-Stack erkennt (Java, Node, Docker, Python usw.) und eine .gitignore aus den offiziellen GitHub/gitignore-Vorlagen erzeugt, mit Fallback zu gitignore.io. Intelligentes Merge mit bestehenden Regeln, keine Duplikate.",
   project_1_tech: "TypeScript · Node.js · CLI",
-  project_1_demo_label: "Demo ansehen",
+  project_1_demo_label: "Dokumentation",
   project_2_name: "secry-api",
   project_2_description:
     "Java-Spring-Boot-Backend-API für eine sichere persönliche Datenbörse mit Fokus auf Gesundheitsdaten, Notfallkontakte und Identität, mit JWT-Authentifizierung und Schichtenarchitektur.",
